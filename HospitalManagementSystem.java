@@ -261,9 +261,9 @@ public class HospitalManagementSystem {
     public static void main(String[] args) {
 
        
-        Doctor doc1 = new Doctor("D001", "Amina Hassan", "0712345678", "Cardiology", 180000);
-        Nurse nurse1 = new Nurse("N001", "Brian Otieno", "0798765432", "Emergency", 500, 160);
-        Patient patient1 = new Patient("P001", "Felijoe Oqueer", "0700111222", 18, "Fever");
+        Doctor doc1 = new Doctor("D001", "Sunday George", "0712345678", "Cardiology", 180000);
+        Nurse nurse1 = new Nurse("N001", "Kendi Kamau", "0798765432", "Emergency", 500, 160);
+        Patient patient1 = new Patient("P001", "Shem Oduor", "0700111222", 18, "Fever");
 
        
         Person p1 = doc1;   
