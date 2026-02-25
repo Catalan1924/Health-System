@@ -297,6 +297,6 @@ public class HospitalManagementSystem {
         Department dept = new Department("Cardiology");
         dept.showDepartment();
 
-        System.out.println("\nSystem demo complete - all features showcased successfully!");
+        System.out.println("\nGoodbye!See you next time.");
     }
 }
