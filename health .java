@@ -169,3 +169,90 @@ class Patient extends Person {
     }
 }
 
+
+class Appointment implements Schedulable {
+    private String appointmentId;
+    private Patient patient;
+    private Doctor doctor;
+    private String date;
+    private String time;
+
+    public Appointment(String appointmentId, Patient patient, Doctor doctor, String date, String time) {
+        this.appointmentId = appointmentId;
+        this.patient = patient;
+        this.doctor = doctor;
+        this.date = date;
+        this.time = time;
+    }
+
+    public String getAppointmentId() { return appointmentId; }
+    public void setAppointmentId(String appointmentId) { this.appointmentId = appointmentId; }
+
+    public Patient getPatient() { return patient; }
+    public void setPatient(Patient patient) { this.patient = patient; }
+
+    public Doctor getDoctor() { return doctor; }
+    public void setDoctor(Doctor doctor) { this.doctor = doctor; }
+
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
+
+    public String getTime() { return time; }
+    public void setTime(String time) { this.time = time; }
+
+    @Override
+    public void schedule() {
+        System.out.println("Appointment Scheduled: " + appointmentId +
+                " | Patient: " + patient.getName() +
+                " | Doctor: " + doctor.getName() +
+                " | Date: " + date + " | Time: " + time);
+    }
+
+    @Override
+    public void reschedule(String newDate, String newTime) {
+        this.date = newDate;
+        this.time = newTime;
+        System.out.println("Appointment " + appointmentId + " rescheduled to " + date + " at " + time);
+    }
+}
+
+class BillingService extends HospitalService {
+    private Patient patient;
+    private double amount;
+
+    public BillingService(String serviceName, Patient patient, double amount) {
+        super(serviceName);
+        this.patient = patient;
+        this.amount = amount;
+    }
+
+    public Patient getPatient() { return patient; }
+    public void setPatient(Patient patient) { this.patient = patient; }
+
+    public double getAmount() { return amount; }
+    public void setAmount(double amount) { this.amount = amount; }
+
+    @Override
+    public void executeService() {
+        System.out.println("Billing Service: " + getServiceName() +
+                " | Patient: " + patient.getName() +
+                " | Amount Due: KES " + amount);
+    }
+}
+
+
+class Department {
+    private String departmentName;
+
+    public Department(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public String getDepartmentName() { return departmentName; }
+    public void setDepartmentName(String departmentName) { this.departmentName = departmentName; }
+
+    public void showDepartment() {
+        System.out.println("Department: " + departmentName);
+    }
+}
+
