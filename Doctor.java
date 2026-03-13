@@ -4,15 +4,31 @@ public class Doctor extends Person implements Payable {
 
     public Doctor(String id, String name, String phone, String specialization, double monthlySalary) {
         super(id, name, phone);
-        this.specialization = specialization;
-        this.monthlySalary = monthlySalary;
+        setSpecialization(specialization);
+        setMonthlySalary(monthlySalary);
     }
 
-    public String getSpecialization() { return specialization; }
-    public void setSpecialization(String specialization) { this.specialization = specialization; }
+    public String getSpecialization() {
+        return specialization;
+    }
 
-    public double getMonthlySalary() { return monthlySalary; }
-    public void setMonthlySalary(double monthlySalary) { this.monthlySalary = monthlySalary; }
+    public void setSpecialization(String specialization) {
+        if (specialization == null || specialization.trim().isEmpty()) {
+            throw new IllegalArgumentException("Specialization cannot be empty.");
+        }
+        this.specialization = specialization;
+    }
+
+    public double getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    public void setMonthlySalary(double monthlySalary) {
+        if (monthlySalary < 0) {
+            throw new IllegalArgumentException("Monthly salary cannot be negative.");
+        }
+        this.monthlySalary = monthlySalary;
+    }
 
     @Override
     public String getRole() {

@@ -5,19 +5,43 @@ public class Nurse extends Person implements Payable {
 
     public Nurse(String id, String name, String phone, String department, double hourlyRate, int hoursWorked) {
         super(id, name, phone);
-        this.department = department;
-        this.hourlyRate = hourlyRate;
-        this.hoursWorked = hoursWorked;
+        setDepartment(department);
+        setHourlyRate(hourlyRate);
+        setHoursWorked(hoursWorked);
     }
 
-    public String getDepartment() { return department; }
-    public void setDepartment(String department) { this.department = department; }
+    public String getDepartment() {
+        return department;
+    }
 
-    public double getHourlyRate() { return hourlyRate; }
-    public void setHourlyRate(double hourlyRate) { this.hourlyRate = hourlyRate; }
+    public void setDepartment(String department) {
+        if (department == null || department.trim().isEmpty()) {
+            throw new IllegalArgumentException("Department cannot be empty.");
+        }
+        this.department = department;
+    }
 
-    public int getHoursWorked() { return hoursWorked; }
-    public void setHoursWorked(int hoursWorked) { this.hoursWorked = hoursWorked; }
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public void setHourlyRate(double hourlyRate) {
+        if (hourlyRate < 0) {
+            throw new IllegalArgumentException("Hourly rate cannot be negative.");
+        }
+        this.hourlyRate = hourlyRate;
+    }
+
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
+
+    public void setHoursWorked(int hoursWorked) {
+        if (hoursWorked < 0) {
+            throw new IllegalArgumentException("Hours worked cannot be negative.");
+        }
+        this.hoursWorked = hoursWorked;
+    }
 
     @Override
     public String getRole() {

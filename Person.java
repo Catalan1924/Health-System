@@ -9,14 +9,38 @@ public abstract class Person {
         this.phone = phone;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setId(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            throw new IllegalArgumentException("ID cannot be empty.");
+        }
+        this.id = id;
+    }
 
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty.");
+        }
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        if (phone == null || phone.trim().isEmpty()) {
+            throw new IllegalArgumentException("Phone cannot be empty.");
+        }
+        this.phone = phone;
+    }
 
     public abstract String getRole();
 
