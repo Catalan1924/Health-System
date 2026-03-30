@@ -1,4 +1,8 @@
-public class Doctor extends Person implements Payable {
+import java.io.Serializable;
+
+public class Doctor extends Person implements Payable, Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private String specialization;
     private double monthlySalary;
 

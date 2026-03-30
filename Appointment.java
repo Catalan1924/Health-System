@@ -1,4 +1,8 @@
-public class Appointment implements Schedulable {
+import java.io.Serializable;
+
+public class Appointment implements Schedulable, Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private String appointmentId;
     private Patient patient;
     private Doctor doctor;

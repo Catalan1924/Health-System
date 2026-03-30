@@ -1,4 +1,8 @@
-public class Nurse extends Person implements Payable {
+import java.io.Serializable;
+
+public class Nurse extends Person implements Payable, Serializable {
+    private static final long serialVersionUID = 1L;
+    
     private String department;
     private double hourlyRate;
     private int hoursWorked;
